@@ -1,0 +1,15 @@
+sudo: required
+
+services:
+  - docker
+
+before_install:
+  - docker version
+  - docker-compose version
+
+before_script:
+  - docker-compose up --build -d
+  - docker-compose ps
+
+script:
+  - docker-compose run mes_gateway pytest

@@ -1,0 +1,15 @@
+version: '2'
+services:
+  mes_gateway:
+    build: .
+    privileged: true
+    volumes:
+      - .:/opt/mes_gateway
+
+  mqtt:
+    image: panuwitp/mosquitto-arm
+    depends_on:
+      - mes_gateway
+    ports:
+      - "1883:1883"
+      - "8883:8883"
