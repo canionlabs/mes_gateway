@@ -3,6 +3,8 @@ services:
   mes_gateway:
     build: .
     privileged: true
+    volumes:
+      - .:/opt/mes_gateway
 
   mqtt:
     image: panuwitp/mosquitto-arm
